@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Grab Africa</title>
+	<link rel="stylesheet" type="text/css" href="game2Vstyle.css">
+</head>
+<body>
+	<div id="root">
+		<h1>Grab Africa</h1>
+
+		<h2>Your Score:</h2>
+		<h2> {{ score }} </h2>
+
+		<h2>Seconds Left:</h2>
+		<h2> {{ seconds }} </h2>
+		<div :class="grid">
+			<div v-for="id in ids">
+				<div  :class=" [ isActive ? square : '', mole ] ">
+
+					
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+</body>
+<script src="vue"></script>
+
+<script>
+var app = new Vue({
+	el: '#root',
+	data: {
+		score: "pending score",
+		seconds: 60,
+		grid: "grid",
+		square: "square",
+		mole: "mole",
+		isActive: true,
+		ids: ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+	},
+	 
+    methods:{
+    	countDown(){
+    		for (var i = this.seconds; i >= 0; i--) {
+    			
+    			this.seconds = i
+    		}
+    	},
+    	randomSquare(){
+    		this.square.find()
+    	}
+    },
+})
+
+   
+   app.countDown()
+</script>
+</html>
