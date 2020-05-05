@@ -35,6 +35,7 @@ var app = new Vue({
 		score: "pending score",
 		seconds: 60,
 		grid: "grid",
+		randomPosition: '',
 		isActive: false,
 		
 		
@@ -47,11 +48,22 @@ var app = new Vue({
     			
     			this.seconds = i
     		}
+
+    		this.randomPosition = 6
     	},
     	toggleClass(){
     		
-    		this.isActive = true
-    		console.log("hit me")
+    		// this.isActive = true
+    		this.randomPosition = Math.floor(Math.random() * 9)
+
+    		console.log("hit me" + " " + this.randomPosition)
+
+    		const found = this.ids.indexOf(`${this.randomPosition}`)
+    		if (found == -1) {return}
+    			else{
+    				console.log(found)
+    				
+    			}
     		
     	}
     },
