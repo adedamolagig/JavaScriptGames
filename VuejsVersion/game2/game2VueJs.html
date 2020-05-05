@@ -16,8 +16,9 @@
 		<h2> {{ seconds }} </h2>
 		<div :class="grid">
 			<div v-for="id in ids">
-				<div  :class=" [ isActive ? square : '', mole ] ">
-
+				<div :class="[isActive ? 'mole' : '', 'square']" @click="toggleClass">
+					
+					show Africa
 					
 				</div>
 			</div>
@@ -34,9 +35,9 @@ var app = new Vue({
 		score: "pending score",
 		seconds: 60,
 		grid: "grid",
-		square: "square",
-		mole: "mole",
-		isActive: true,
+		isActive: false,
+		
+		
 		ids: ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 	},
 	 
@@ -47,13 +48,14 @@ var app = new Vue({
     			this.seconds = i
     		}
     	},
-    	randomSquare(){
-    		this.square.find()
+    	toggleClass(){
+    		
+    		this.isActive = true
+    		console.log("hit me")
+    		
     	}
     },
 })
 
-   
-   app.countDown()
 </script>
 </html>
